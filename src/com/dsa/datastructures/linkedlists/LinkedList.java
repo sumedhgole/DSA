@@ -121,15 +121,51 @@ public class LinkedList {
             return;
         }
 
+        System.out.println("Linked List:");
         while(currentNode != null) {
-            System.out.println(currentNode.value);
+            System.out.print(currentNode.value);
+            if(currentNode != tail) {
+                System.out.print("->");
+            }
             currentNode = currentNode.next;
         }
+        System.out.println("");
         return;
     }
 
     public void delete(int value) {
 
+        Node currentNode = head;
+
+        if(currentNode == null) {
+
+            return;
+
+        } else if(currentNode.value == value) {
+
+            head = currentNode.next;
+            currentNode.next = null;
+
+            return;
+
+        } else {
+
+            while(currentNode.next != null) {
+
+                if(currentNode.next.value == value) {
+                    currentNode.next = currentNode.next.next;
+                    if(currentNode.next == null) {
+                        tail = currentNode;
+                    }
+                    currentNode.next = null;
+
+                    return;
+                }
+                currentNode = currentNode.next;
+            }
+
+
+        }
     }
 
     public void deleteFromFront() {
