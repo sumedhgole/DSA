@@ -15,9 +15,9 @@ public class Main {
         linkedList.insertAtIndex(1, 22);
 
         linkedList.printLinkedList();
-
         // deletion
         linkedList.deleteFromFront();
+        linkedList.delete(100);
 
         linkedList.printLinkedList();
     }
