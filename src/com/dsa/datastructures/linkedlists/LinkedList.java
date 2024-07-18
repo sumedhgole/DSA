@@ -6,7 +6,6 @@ public class LinkedList {
 
         int value;
         Node next;
-        Node prev;
 
         public Node(int value) {
             this.value = value;
@@ -14,19 +13,19 @@ public class LinkedList {
         }
     }
 
-    Node head;
-    Node tail;
+    private Node head;
+    private Node tail;
 
     public LinkedList() {
         head = null;
         tail = null;
     }
 
-    public void insertAtFront(int value)  {
+    public void insertAtFront(int value) {
 
         Node newNode = new Node(value);
 
-        if(head == null) {
+        if (head == null) {
             head = newNode;
             tail = newNode;
         } else {
@@ -40,29 +39,26 @@ public class LinkedList {
 
         Node newNode = new Node(value);
 
-        if(head == null) {
+        if (head == null) {
             head = newNode;
-            tail = newNode;
         } else {
 
             Node currentNode = head;
 
-            while(currentNode.next != null) {
+            while (currentNode.next != null) {
                 currentNode = currentNode.next;
             }
 
             currentNode.next = newNode;
-            tail = newNode;
         }
-
-        return;
+        tail = newNode;
     }
 
     public void insertAtEnd_UsingTail(int value) {
 
         Node newNode = new Node(value);
 
-        if(head == null) {
+        if (head == null) {
             head = newNode;
         } else {
             tail.next = newNode;
@@ -76,14 +72,14 @@ public class LinkedList {
 
         Node newNode = new Node(value);
 
-        if(head == null) {
+        if (head == null) {
             head = newNode;
             tail = newNode;
         } else {
             Node currentNode = head;
             int count = 0;
 
-            if(index <= 0) {
+            if (index <= 0) {
                 insertAtFront(value);
                 return;
             }
@@ -93,16 +89,16 @@ public class LinkedList {
 //                count++;
 //            }
 
-            for(int currPos = 0; currPos < index - 1; currPos++) {
+            for (int currPos = 0; currPos < index - 1; currPos++) {
 
-                if(currentNode.next == null) {
+                if (currentNode.next == null) {
                     break;
                 } else {
                     currentNode = currentNode.next;
                 }
             }
 
-            if(currentNode.next == null) {
+            if (currentNode.next == null) {
                 currentNode.next = newNode;
                 tail = newNode;
             } else {
@@ -113,23 +109,23 @@ public class LinkedList {
 
     }
 
-    public void printLinkedList() {
+    public void print() {
         Node currentNode = head;
 
-        if(head == null) {
+        if (head == null) {
             System.out.println("NULL");
             return;
         }
 
         System.out.println("Linked List:");
-        while(currentNode != null) {
+        while (currentNode != null) {
             System.out.print(currentNode.value);
-            if(currentNode != tail) {
+            if (currentNode != tail) {
                 System.out.print("->");
             }
             currentNode = currentNode.next;
         }
-        System.out.println("");
+        System.out.println();
         return;
     }
 
@@ -137,11 +133,11 @@ public class LinkedList {
 
         Node currentNode = head;
 
-        if(currentNode == null) {
+        if (currentNode == null) {
 
             return;
 
-        } else if(currentNode.value == value) {
+        } else if (currentNode.value == value) {
 
             head = currentNode.next;
             currentNode.next = null;
@@ -150,11 +146,11 @@ public class LinkedList {
 
         } else {
 
-            while(currentNode.next != null) {
+            while (currentNode.next != null) {
 
-                if(currentNode.next.value == value) {
+                if (currentNode.next.value == value) {
                     currentNode.next = currentNode.next.next;
-                    if(currentNode.next == null) {
+                    if (currentNode.next == null) {
                         tail = currentNode;
                     }
                     currentNode.next = null;
@@ -170,10 +166,9 @@ public class LinkedList {
 
     public void deleteFromFront() {
         Node currentNode = head;
-
-        if(currentNode == null) {
+        if (currentNode == null) {
             return;
-        } else if(currentNode.next == null) {
+        } else if (currentNode.next == null) {
             head = null;
             tail = null;
         } else {
