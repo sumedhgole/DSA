@@ -50,6 +50,43 @@ public class CircularLinkedList {
 
     }
 
+    public void deleteFromFront() {
+
+        Node currentNode = this.head;
+
+        if(currentNode == null) {
+            return;
+        } else if(currentNode == tail) {
+            this.head = null;
+            this.tail = null;
+            currentNode.next = null;
+        } else {
+            this.head = currentNode.next;
+            currentNode.next = null;
+        }
+    }
+
+    public void deleteFromEnd() {
+
+        Node currentNode = this.head;
+
+        if(currentNode == null) {
+            return;
+        } else if(currentNode == tail) {
+            this.head = null;
+            this.tail = null;
+            currentNode.next = null;
+        } else {
+
+            while(currentNode.next != this.tail) {
+                currentNode = currentNode.next;
+            }
+            currentNode.next = this.head;
+            this.tail = currentNode;
+            currentNode.next.next = null;
+        }
+    }
+
     public void delete(int value) {
 
         Node currentNode = this.head;
@@ -72,6 +109,7 @@ public class CircularLinkedList {
                         this.tail = currentNode;
                     }
                     currentNode.next = currentNode.next.next;
+                    currentNode.next.next = null;
                     return;
                 }
                 currentNode = currentNode.next;

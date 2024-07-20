@@ -35,7 +35,16 @@ public class Main {
 
         // deletion
         circularLinkedList.delete(4);
-        circularLinkedList.delete(2);
+
+        circularLinkedList.print();
+
+        // deletion from front
+        circularLinkedList.deleteFromFront();
+
+        circularLinkedList.print();
+
+        // deletion from end
+        circularLinkedList.deleteFromEnd();
 
         circularLinkedList.print();
 
