@@ -21,6 +21,20 @@ public class CircularLinkedList {
         tail = null;
     }
 
+    public void insertAtFront(int value) {
+
+        Node newNode = new Node(value);
+
+        if (this.head == null) {
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            newNode.next = head;
+            this.head = newNode;
+            this.tail.next = newNode;
+        }
+    }
+
     public void insertAtEnd(int value) {
 
         Node newNode = new Node(value);
@@ -36,18 +50,34 @@ public class CircularLinkedList {
 
     }
 
-    public void insertAtFront(int value) {
+    public void delete(int value) {
 
-        Node newNode = new Node(value);
+        Node currentNode = this.head;
 
-        if (this.head == null) {
-            this.head = newNode;
-            this.tail = newNode;
+        if(currentNode == null) {
+            return;
+        } else if(currentNode.value == value) {
+            if(currentNode == this.tail) {
+                this.head = null;
+            } else {
+                this.head = currentNode.next;
+            }
+            this.tail.next = this.head;
         } else {
-            newNode.next = head;
-            this.head = newNode;
-            this.tail.next = newNode;
+            while(currentNode != this.tail)  {
+
+                if(currentNode.next.value == value) {
+
+                    if(currentNode.next == this.tail) {
+                        this.tail = currentNode;
+                    }
+                    currentNode.next = currentNode.next.next;
+                    return;
+                }
+                currentNode = currentNode.next;
+            }
         }
+
     }
 
     public void print() {
@@ -70,7 +100,8 @@ public class CircularLinkedList {
             currentNode = currentNode.next;
         }
 
-        System.out.print(currentNode.value + "->" + this.head.value);
+        System.out.print(currentNode.value + "->" + this.head.value + "(HEAD)");
+        System.out.println();
     }
 
 }

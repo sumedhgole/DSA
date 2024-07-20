@@ -33,6 +33,12 @@ public class Main {
 
         circularLinkedList.print();
 
+        // deletion
+        circularLinkedList.delete(4);
+        circularLinkedList.delete(2);
+
+        circularLinkedList.print();
+
     }
 }
 
