@@ -48,6 +48,13 @@ public class Main {
 
         circularLinkedList.print();
 
+        DoublyLinkedList doublyLinkedList = new DoublyLinkedList();
+
+        doublyLinkedList.insertAt(0, 101);
+        doublyLinkedList.insertAt(1, 111);
+        doublyLinkedList.insertAt(2, 10111);
+
+        doublyLinkedList.print();
     }
 }
 
