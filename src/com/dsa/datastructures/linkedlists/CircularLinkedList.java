@@ -122,7 +122,7 @@ public class CircularLinkedList {
 
         Node currentNode = this.head;
 
-        if (this.head == null) {
+        if (currentNode == null) {
             System.out.println("NULL");
             return;
         }
